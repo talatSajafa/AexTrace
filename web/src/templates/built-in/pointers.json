@@ -1,0 +1,92 @@
+{
+  "id": "pointers",
+  "name": "Pointers - Foundations",
+  "version": "1.0.0",
+  "subject": "C++",
+  "description": "Learn pointers from the ground up.",
+  "lessons": [
+    {
+      "id": "l1",
+      "title": "What is a variable?",
+      "code": "int x = 5;",
+      "explanation": "A variable is a named box in memory. `x` holds the value `5`. It has an address (where it lives) and a value (what's inside).",
+      "keyPoints": [
+        "Every variable lives at an address",
+        "The visualizer shows this in the STACK region"
+      ],
+      "bloom": [
+        {
+          "id": "l1-q1",
+          "level": 1,
+          "question": "What does `int x = 5;` do?",
+          "options": ["Creates x with value 5", "Creates 5 variables", "Multiplies x by 5", "Just a comment"],
+          "correctIndex": 0,
+          "explanation": "It creates a variable x and stores 5."
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "Getting an address",
+      "code": "int x = 5;\nint* p = &x;",
+      "explanation": "The `&` operator asks 'What is the address of this variable?' So `&x` means address of x.",
+      "keyPoints": [
+        "`&x` returns the address",
+        "`int* p` means p holds an address",
+        "The arrow shows what p points to"
+      ]
+    },
+    {
+      "id": "l3",
+      "title": "Dereference",
+      "code": "int x = 5;\nint* p = &x;\n*p = 10;",
+      "explanation": "`*p` means the value AT the address p holds. `*p = 10;` writes 10 into that address, changing x.",
+      "keyPoints": [
+        "`p` is the address",
+        "`*p` is the value at that address",
+        "Writing `*p = 10;` changes x"
+      ]
+    },
+    {
+      "id": "l4",
+      "title": "Reading through a pointer",
+      "code": "int x = 42;\nint* p = &x;\nint y = *p;",
+      "explanation": "You can also READ through a pointer. `int y = *p;` copies the value at p's address into y.",
+      "keyPoints": [
+        "`*p` on the right reads the value",
+        "`*p` on the left writes the value",
+        "y gets a COPY of x's value"
+      ]
+    },
+    {
+      "id": "l5",
+      "title": "Reassigning a pointer",
+      "code": "int a = 1;\nint b = 2;\nint* p = &a;\np = &b;",
+      "explanation": "A pointer can be re-pointed. First p points to a, then `p = &b;` makes it point to b.",
+      "keyPoints": [
+        "`p = &b;` changes what p points to",
+        "The old relationship is gone"
+      ]
+    },
+    {
+      "id": "l6",
+      "title": "Null pointers",
+      "code": "int* p = nullptr;",
+      "explanation": "`nullptr` means 'points to nothing'. Always initialize pointers either to an address or nullptr.",
+      "keyPoints": [
+        "`nullptr` means points to nothing",
+        "Dereferencing nullptr crashes (which is good - visible)"
+      ]
+    },
+    {
+      "id": "l7",
+      "title": "Putting it together",
+      "code": "int score = 100;\nint* ptr = &score;\n*ptr = *ptr + 50;",
+      "explanation": "Read through pointer, compute, write back. This shows pointers let you work with variables indirectly.",
+      "keyPoints": [
+        "Read with `*ptr`, write with `*ptr =`",
+        "The variable was modified through ptr"
+      ]
+    }
+  ]
+}

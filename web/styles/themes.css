@@ -1,0 +1,94 @@
+/* ============================================================
+   AexTrace Themes
+   ============================================================ */
+
+[data-theme="obsidian"] {
+  --bg: #0d1117;
+  --panel-bg: #161b22;
+  --panel-bg-2: #1c2128;
+  --fg: #e6edf3;
+  --fg-dim: #8b949e;
+  --accent: #7cc4ff;
+  --accent-glow: rgba(124, 196, 255, 0.35);
+  --border: #30363d;
+  --success: #3fb950;
+  --error: #f85149;
+  --warning: #d29922;
+  --pointer-glow: #7cc4ff;
+}
+
+[data-theme="midnight"] {
+  --bg: #13111c;
+  --panel-bg: #1c1828;
+  --panel-bg-2: #23203a;
+  --fg: #e2dff5;
+  --fg-dim: #8882a8;
+  --accent: #a78bfa;
+  --accent-glow: rgba(167, 139, 250, 0.35);
+  --border: #2d2840;
+  --success: #4ade80;
+  --error: #f87171;
+  --warning: #fbbf24;
+  --pointer-glow: #a78bfa;
+}
+
+[data-theme="solarized"] {
+  --bg: #fdf6e3;
+  --panel-bg: #eee8d5;
+  --panel-bg-2: #e4ddc8;
+  --fg: #657b83;
+  --fg-dim: #93a1a1;
+  --accent: #268bd2;
+  --accent-glow: rgba(38, 139, 210, 0.3);
+  --border: #d3cbb8;
+  --success: #859900;
+  --error: #dc322f;
+  --warning: #b58900;
+  --pointer-glow: #268bd2;
+}
+
+[data-theme="contrast"] {
+  --bg: #000000;
+  --panel-bg: #0a0a0a;
+  --panel-bg-2: #141414;
+  --fg: #ffffff;
+  --fg-dim: #cccccc;
+  --accent: #00ff88;
+  --accent-glow: rgba(0, 255, 136, 0.4);
+  --border: #333333;
+  --success: #00ff00;
+  --error: #ff3333;
+  --warning: #ffcc00;
+  --pointer-glow: #00ff88;
+}
+
+[data-theme="monokai"] {
+  --bg: #2d2a2e;
+  --panel-bg: #221f22;
+  --panel-bg-2: #1a181b;
+  --fg: #fcfcfa;
+  --fg-dim: #939293;
+  --accent: #ffd866;
+  --accent-glow: rgba(255, 216, 102, 0.35);
+  --border: #403e41;
+  --success: #a9dc76;
+  --error: #ff6188;
+  --warning: #fc9867;
+  --pointer-glow: #ffd866;
+}
+
+/* Sakura — dark aesthetic pink */
+[data-theme="sakura"] {
+  --bg: #18131a;
+  --panel-bg: #201a24;
+  --panel-bg-2: #2a2230;
+  --fg: #f5ecf0;
+  --fg-dim: #b09aa8;
+  --accent: #f0a4c0;
+  --accent-glow: rgba(240, 164, 192, 0.4);
+  --border: #3a2d40;
+  --success: #b8e0c8;
+  --error: #f0a0a0;
+  --warning: #f0d0a0;
+  --pointer-glow: #f0a4c0;
+}

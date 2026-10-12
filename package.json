@@ -1,0 +1,17 @@
+{
+  "name": "aextrace",
+  "version": "0.1.0",
+  "description": "AexTrace — Visual Coding Platform",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:ts": "tsc",
+    "watch:ts": "tsc --watch",
+    "build:wasm": "powershell -ExecutionPolicy Bypass -File ./build.ps1",
+    "build": "npm run build:wasm && npm run build:ts",
+    "serve": "python -m http.server 8080"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

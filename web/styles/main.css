@@ -1,0 +1,202 @@
+/* ============================================================
+   AexTrace — Main Layout (FINAL, RESPONSIVE)
+   ============================================================ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---------- App Grid ---------- */
+#app {
+  display: grid;
+  grid-template-rows: 52px 1fr auto;   /* Topbar | Workspace | Bloom */
+  height: 100vh;
+  height: 100dvh;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+/* ---------- Topbar ---------- */
+#topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--panel-bg) 0%, var(--bg) 100%);
+  position: relative;
+  z-index: 5;
+}
+
+#topbar h1 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 16px var(--accent-glow);
+}
+
+#topbar h1::before { content: '◆ '; opacity: 0.7; font-size: 12px; }
+
+#theme-switcher select {
+  background: var(--panel-bg-2);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+/* ---------- Workspace (2 columns) ---------- */
+#workspace {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: minmax(0, 1fr);
+  gap: 1px;
+  background: var(--border);
+  overflow: hidden;
+  min-height: 0;
+  min-width: 0;
+}
+
+#editor-panel,
+#visualizer-panel {
+  background: var(--panel-bg);
+  overflow: hidden;
+  position: relative;
+  min-height: 0;
+  min-width: 0;
+  height: 100%;
+}
+
+/* ---------- Bloom Panel ---------- */
+#bloom-panel {
+  background: linear-gradient(180deg, var(--panel-bg) 0%, var(--bg) 100%);
+  border-top: 1px solid var(--border);
+  padding: 20px 24px 24px 24px;
+  color: var(--fg);
+  height: 280px;
+  min-height: 120px;
+  max-height: 50vh;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1;
+}
+
+#bloom-resize-handle {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 8px;
+  cursor: ns-resize;
+  background: transparent;
+  z-index: 10;
+}
+
+#bloom-resize-handle::before {
+  content: '';
+  position: absolute;
+  top: 3px; left: 50%;
+  transform: translateX(-50%);
+  width: 40px; height: 2px;
+  background: var(--border);
+  border-radius: 2px;
+  transition: background 0.2s ease, width 0.2s ease;
+}
+
+#bloom-resize-handle:hover::before {
+  background: var(--accent);
+  width: 80px;
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+#bloom-content { max-width: 960px; margin: 0 auto; }
+
+/* ---------- Scrollbars ---------- */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 5px;
+  border: 2px solid var(--panel-bg);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ---------- Buttons ---------- */
+button { font-family: inherit; transition: all 0.2s ease; }
+button:hover { box-shadow: 0 0 12px var(--accent-glow); }
+
+::selection { background: var(--accent); color: var(--bg); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ============================================================
+   TABLET (max-width: 900px)
+   ============================================================ */
+@media (max-width: 900px) {
+  #app { grid-template-rows: 52px 1fr auto; }
+  #bloom-panel { height: 200px; }
+  #topbar h1 { font-size: 15px; }
+}
+
+/* ============================================================
+   TABLET / LANDSCAPE PHONE (max-width: 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+  #app { grid-template-rows: 48px 1fr auto; }
+
+  #workspace {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;   /* Editor upar, Visualizer neeche */
+  }
+
+  #topbar { padding: 0 14px; }
+  #topbar h1 { font-size: 14px; }
+  #theme-switcher select { padding: 5px 10px; font-size: 12px; }
+
+  #bloom-panel {
+    height: 180px;
+    padding: 14px 16px 16px 16px;
+  }
+}
+
+/* ============================================================
+   SMALL PHONE (max-width: 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+  #app { grid-template-rows: 44px 1fr auto; }
+
+  #workspace {
+    grid-template-rows: 1fr 1fr;
+  }
+
+  #topbar { padding: 0 10px; }
+  #topbar h1 { font-size: 13px; }
+  #topbar h1::before { font-size: 10px; }
+  #theme-switcher select { padding: 4px 8px; font-size: 11px; }
+
+  #bloom-panel {
+    height: 160px;
+    padding: 10px 12px 12px 12px;
+  }
+}
+
+/* ============================================================
+   LANDSCAPE PHONE (height choti, width zyada)
+   ============================================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+  #app { grid-template-rows: 40px 1fr 0px; }
+  #bloom-panel { display: none; }
+}
